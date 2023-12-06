@@ -1,15 +1,18 @@
 const startButton = document.querySelector('[data-start]');
 const stopButton = document.querySelector('[data-stop]');
-const body = document.querySelector('body')
+const body = document.querySelector('body');
 
-startButton.addEventListener("click", onClick)
-stopButton.addEventListener("click", offClick)
+let intervalId = null;
+
+startButton.addEventListener("click", onClick);
+stopButton.addEventListener("click", offClick);
+stopButton.disabled = true;
+
 
 function getRandomHexColor() {
       return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
     }
 
-let intervalId;
 
 function onClick() {
       startButton.disabled = true;
